@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Churrastop</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+      html, body {
+        height: 100%;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+        color: #222;
+        background-color: #222;
+      }
+
+      .logo {
+        font-size: 1.5em;
+      }
+
+      .navbar {
+        padding: .8rem;
+      }
+
+      .navbar-nav li {
+        padding-right: 20px;
+      }
+
+      .nav-link {
+        font-size: 1.1em !important;
+      }
+
+      .card {
+        margin-top: 10%;
+        margin-right: 5%;
+        margin-left: 5%;
+        box-shadow: 2px 2px 20px #000;
+      }
+
+      .card:hover {
+        background-color: #d5d5d5; 
+        cursor: pointer;
+      }
+
+      .list-group-item {
+        background-color: rgba(0,0,0,0);
+      }
+
+      label {
+        font-size: 0.8em;
+        margin-bottom: 0.25em;
+        color: #222;
+        font-weight: lighter;
+      }
+
+      input {
+        padding: 10px 10px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #cfcfcf;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      input::placeholder {
+        font-size: 1.2em;
+        font-weight: lighter;
+        color: #999;
+      }
+    </style>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="#">CHURRASTOP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Produtos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Notificações</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Histórico de evolução</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Sair</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row" id="produtos">
+      </div>
+    </div>
+      <!-- Button trigger modal -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <form class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Reservar Produto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label>Quantidade desejada:</label>
+                <input id="inputQuantidade" placeholder="1" min="1" type="number"></input>
+                <small id="quantidadeDisponivel"></small>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
+                <button type="button" onClick="reservarProduto()" class="btn btn-dark">Confirmar</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    <div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script type="text/javascript">
+        let produtos = [
+          {
+              id: 1,
+              titulo:"Água mineral s/ gás",
+              descricao: "Garrafa de água sem gás contendo 500ml.",
+              marca: "Crystal",
+              quantidade: 237,
+              preco: 3,
+          },
+          { 
+              id: 2,
+              titulo:"Água mineral s/ gás",
+              descricao: "Garrafa de água sem gás contendo 500ml.",
+              marca: "Crystal",
+              quantidade: 237,
+              preco: 3,
+          },
+          {
+              id: 3,
+              titulo:"Água mineral s/ gás",
+              descricao: "Garrafa de água sem gás contendo 500ml.",
+              marca: "Crystal",
+              quantidade: 237,
+              preco: 3,
+          }
+        ]
+
+
+        let html_prod = (produto) => `<div class="col sm-6 md-3"> 
+          <div onClick="formReserva(${produto.id})" class="card" data-toggle="modal" data-target="#exampleModalCenter" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${produto.titulo}</h5>
+              <p class="card-text">${produto.descricao}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Marca: ${produto.marca} </li>
+              <li class="list-group-item">Quantidade disponível: ${produto.quantidade}</li>
+              <li class="list-group-item">Preço: R$ ${produto.preco.toFixed(2).replace(".", ",")}</li>
+            </ul>
+          </div>
+        </div>` 
+
+        let reservarProduto = () => {
+          document.getElementById("inputQuantidade").value 
+        }
+
+        let formReserva = (id) => {
+          let qtd = "Quantidade disponível: "+ produtos.find(p => p.id == id).quantidade
+          document.getElementById('quantidadeDisponivel').textContent = qtd
+          document.getElementById("inputQuantidade").value = 1
+        }
+        var carrega_produtos = () => {
+          let content = produtos.map(p => html_prod(p)).join()
+          document.getElementById("produtos").innerHTML = content
+        }
+        document.addEventListener("DOMContentLoaded", carrega_produtos);
+    </script>
+  </body>
+</html>

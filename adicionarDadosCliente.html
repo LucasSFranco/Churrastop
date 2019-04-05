@@ -1,0 +1,146 @@
+<html>
+<head>
+  <title>Churrastop</title>
+  <link rel="stylesheet" href="adicionarDadosCliente.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div class="wrapper"> 
+    <div class="form-wrapper">
+      <div class="form">
+        <h1>Adicionar dados do cliente</h1>
+        <div class="nomeCliente">
+          <label>Nome do cliente</label>
+          <input type="text" id="nomeCliente" placeholder="Nome do cliente" required/>
+          <span class="error" id="error_nomeCliente"></span>
+        </div>
+        <div class="taxaGorduraCorporal">
+          <label>Gordura corporal (%)</label>
+          <input type="text" id="taxaGorduraCorporal" placeholder="Gordura corporal (%)" required/>
+          <span class="error" id="error_taxaGorduraCorporal"></span>
+        </div>
+        <div class="peso">
+          <label>Peso</label>
+          <input type="text" id="peso" placeholder="Peso" required/>
+          <span class="error" id="error_peso"></span>
+        </div>
+        <div class="botao">
+          <button onclick="adicionarDadosCliente()">Concluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="id01" class="modal">
+    <div class="modal-content animate">
+      <div class="container">
+       <div class="nome">
+          <label>Nome</label>
+          <input type="text" id="nome" placeholder="Nome" required />
+          <span class="error" id="error_nome"></span>
+        </div>
+        <div class="senha">
+          <label>Senha</label>
+          <input type="password" id="senha" placeholder="Senha" required />
+          <span class="error" id="error_senha"></span>
+        </div>
+        <div class="botao">
+          <button>Confirmar</button>
+          <button type="button" onclick="closeModal()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    function request(url, data){
+      var http = new XMLHttpRequest();
+      var url = "url";
+      var params = JSON.stringify(data);
+      http.open("POST", url, true);
+      http.setRequestHeader("Content-type", "application/json; charset=utf-8");
+      http.setRequestHeader("Content-length", params.length);
+      http.setRequestHeader("Connection", "close");
+      http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+        }
+      }
+      http.send(params);
+    }
+
+
+    function login(){
+      return true
+
+      let nome = document.getElementById("nome").value
+      let senha = document.getElementById("senha").value
+
+      // let response = request("http://localhost:3000/login", {nome: nome, senha: senha})
+      let response = true
+      if(response.login){
+        window.localStorage.setItem('user', 
+        JSON.stringify({
+            user: name, 
+            password: senha,
+            valid: true
+        }))
+      }
+      else{
+
+      }
+    }
+
+    function adicionarDadosCliente(){
+      let user = JSON.parse(window.localStorage.getItem('user'))
+      
+      let dadosCliente = {
+        nomeCliente: document.getElementById("nomeCliente").value,
+        taxaGorduraCorporal: document.getElementById("taxaGorduraCorporal").value,
+        peso: document.getElementById("peso").value,
+      }
+      if(!dadosCliente.nomeCliente){
+        document.getElementById("error_nomeCliente").textContent="Campo não preenchido"
+        document.getElementById("nomeCliente").classList.add("input_error")
+      }
+      else{
+        document.getElementById("nomeCliente").classList.remove("input_error")
+        document.getElementById("error_nomeCliente").textContent=""
+      }
+      if(!dadosCliente.taxaGorduraCorporal){
+        document.getElementById("error_taxaGorduraCorporal").textContent="Campo não preenchido"
+        document.getElementById("taxaGorduraCorporal").classList.add("input_error")
+      }
+      else{
+        document.getElementById("taxaGorduraCorporal").classList.remove("input_error")
+        document.getElementById("error_taxaGorduraCorporal").textContent=""
+      }
+      if(!dadosCliente.peso){
+        document.getElementById("error_peso").textContent="Campo não preenchido"
+        document.getElementById("peso").classList.add("input_error")
+      }
+      else{
+        document.getElementById("peso").classList.remove("input_error")
+        document.getElementById("error_peso").textContent=""
+      }
+
+      if(dadosCliente.nomeCliente && dadosCliente.taxaGorduraCorporal && dadosCliente.peso){
+        document.getElementById('id01').style.display='block'
+      }
+
+      
+      if(user.valid){
+        let data = {
+            dadosCliente: dadosCliente,
+            user: user
+        }
+        // let response = request("http://localhost:3000/cadastrar_dadosCliente", data)
+      }
+    }
+
+    function closeModal(){
+      document.getElementById('id01').style.display='none'
+    }
+  </script>  
+</body>
+</html>
+
