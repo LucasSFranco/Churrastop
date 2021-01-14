@@ -1,0 +1,175 @@
+<html>
+<head>
+
+	<!-- Configuração -->
+
+	<title>Churrastop</title>
+	<meta charset="utf-8">
+
+	<!-- Material icons css -->
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-- Bootstrap css -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- Page css -->
+
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>	
+	<link rel="stylesheet" type="text/css" href="css/modal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/form.css"/>
+	<link rel="stylesheet" type="text/css" href="css/lista.css"/>
+
+</head>
+<body>
+
+	<!-- Navbar: administrador -->
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+		<div class="container-fluid">
+			<a href="homeAdmin.html" class="navbar-brand logo">CHURRASTOP</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="homeAdmin.html" class="nav-link">Home</a>
+					</li>
+					<li class="nav-item">
+						<a href="listaProdutos.html" class="nav-link active">Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a href="listaFuncionarios.html" class="nav-link">Funcionários</a>
+					</li>
+					<li class="nav-item">
+						<a href="listaClientesAdmin.html" class="nav-link">Clientes</a>
+					</li>
+					<li class="nav-item">
+						<a href="relatorioVendas.html" class="nav-link">Relatório de vendas</a>
+					</li>
+					<li class="nav-item">
+						<a href="index.html" class="nav-link">Sair</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Tabela: produtos -->
+
+	<table class="table table-hover">
+		<thead class="thead">
+			<tr>
+				<th scope="col">Produto</th>	
+				<th scope="col">Marca</th>
+				<th scope="col">Preço (R$)</th>
+				<th scope="col">Quantidade disponível</th>
+				<th scope="col" class="actions">
+					<a onclick="formCriar()" href="#criarProdutoModal" class="create" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+						<i class="material-icons" data-toggle="tooltip" title="Cadastrar">add</i>
+					</a>  	
+				</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+		</tbody>
+	</table>
+
+	<!-- Modal: criar produto -->
+
+	<div id="criarProdutoModal" class="modal">
+		<div class="form-wrapper animate">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h1>Cadastrar produto</h1>
+			<div class="input-container">
+				<label>Nome</label>
+				<input type="text" id="createNome" placeholder="Nome"/>
+				<span class="error" id="createErrorNome"></span>
+			</div>
+			<div class="input-container">
+				<label>Marca</label>
+				<input type="text" id="createMarca" placeholder="Marca"/>
+				<span class="error" id="createErrorMarca"></span>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Preço</label>
+						<input type="text" id="createPreco" placeholder="Preço"/>
+						<span class="error" id="createErrorPreco"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Quantidade</label>
+						<input type="text" id="createQuantidade" placeholder="Quantidade"/>
+						<span class="error" id="createErrorQuantidade"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="botao">
+				<button id="createButton" onclick="criarProduto()">Concluir</button>
+				<span class="error" id="createErrorExistente"></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: editar produto -->
+
+	<div id="editarProdutoModal" class="modal">
+		<div class="form-wrapper animate">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h1>Editar produto</h1>
+			<div class="input-container">
+				<label>Nome</label>
+				<input type="text" id="editNome" placeholder="Nome"/>
+				<span class="error" id="editErrorNome"></span>
+			</div>
+			<div class="input-container">
+				<label>Marca</label>
+				<input type="text" id="editMarca" placeholder="Marca"/>
+				<span class="error" id="editErrorMarca"></span>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Preço</label>
+						<input type="text" id="editPreco" placeholder="Preço"/>
+						<span class="error" id="editErrorPreco"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Quantidade</label>
+						<input type="text" id="editQuantidade" placeholder="Quantidade"/>
+						<span class="error" id="editErrorQuantidade"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="botao">
+				<button id="editButton" onclick="editarProduto()">Concluir</button>
+				<span class="error" id="editErrorExistente"></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap script -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<!-- Page script -->
+
+	<script type="text/javascript" src="js/maskGenerator.js"></script>
+	<script type="text/javascript" src="js/listaProdutos.js"></script>
+
+</body>
+</html>
+

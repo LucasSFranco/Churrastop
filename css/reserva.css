@@ -1,0 +1,33 @@
+.padding {
+  padding: 0; 
+}
+
+.card {
+  margin-top: 10%;   
+  border-radius: 10px; 
+  width: auto !important;
+}
+
+.card:hover {
+  background-color: #d5d5d5; 
+  cursor: pointer;
+}
+
+.list-group-item {
+  background-color: rgba(0,0,0,0);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.col-3 {
+  padding: 0 1% 0 1% !important;
+}
+
+.row {
+  width: 100%;
+}

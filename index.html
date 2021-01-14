@@ -1,0 +1,45 @@
+<html>
+<head>
+
+  <!-- Configuração -->
+
+  <title>Churrastop</title>
+  <meta charset="utf-8">
+
+  <!-- Page css -->
+
+  <link rel="stylesheet" type="text/css" href="css/form.css"/>
+  <link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+
+</head>                         
+<body>
+
+  <!-- Formulário: login -->
+
+  <div class="wrapper">
+    <div class="form-wrapper login">
+      <h1>Login</h1>
+      <div class="input-container">
+        <label>Nome</label>
+        <input type="text" id="nomeUsuario" placeholder="Nome"/>
+        <span class="error" id="errorNomeUsuario"></span>
+      </div>
+      <div class="input-container">
+        <label>Senha</label>
+        <input type="password" id="senha" placeholder="Senha"/>
+        <span class="error" id="errorSenha"></span>
+      </div>
+      <div class="botao">
+        <button onclick="logar()" id="botaoEntrar">Entrar</button>
+        <span class="error" id="errorLogin"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page script -->
+
+  <script type="text/javascript" src="js/login.js"></script>
+  
+</body>
+</html>
+

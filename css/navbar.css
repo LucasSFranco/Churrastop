@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+  background-color: #23282C;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+.logo {
+  font-size: 1.5em;
+}
+
+.navbar {
+  padding: .8rem;
+}
+
+.navbar-nav li {
+  padding-right: 20px;
+}
+
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #CCC;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #CCC;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #343a40;
+}

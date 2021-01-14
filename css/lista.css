@@ -1,0 +1,89 @@
+.table {
+	width: 90%;
+	margin: 50px auto;
+	border-radius: 10px; 
+	background-color: #fff;
+}
+
+.destaqueRow {
+	width: 90%;
+	margin: 50px auto
+}
+
+.destaque {
+	padding: 0.75rem !important;
+	border-radius: 10px;
+	background-color: #fff !important;
+}
+
+.largeTable {
+	width: 100%;
+}
+
+.date {
+	width: 10%;
+}
+
+.message {
+	width: 90%;
+}
+
+.tableEvolution {
+	margin-top: 0;
+}
+
+.cliente th,
+.cliente td {
+	width: 11.25%;
+}
+
+.evolution th,
+.evolution td {
+	width: 20%;
+}
+
+th {
+	border-top: 0 solid #fff !important;
+}
+
+td, th {
+	vertical-align: middle !important;
+	width: 22.5%;
+}
+
+.actions {
+	width: 10%;
+	text-align: center;
+}
+
+.delete {
+	color: #E34724;
+}
+
+.delete:hover {
+	color: #BA3B1E;
+}
+
+.edit {
+	color: #FFC107;
+}
+
+.edit:hover {
+	color: #C5A407;
+}
+
+.create {
+	color: #228B22;
+}
+
+.create:hover {
+	color: #1C721C;
+}
+
+.view {
+	color: #444;
+}
+
+.view:hover {
+	color: #222;
+}

@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
 <head>
 
@@ -7,13 +6,20 @@
   <title>Churrastop</title>
   <meta charset="utf-8">
 
+  <!-- Highcharts script -->
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
   <!-- Bootstrap css -->
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Page css -->
 
-  <link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+  <link rel="stylesheet" type="text/css" href="css/navbar.css"/>	
+  <link rel="stylesheet" type="text/css" href="css/modal.css"/>
   <link rel="stylesheet" type="text/css" href="css/form.css"/>
   <link rel="stylesheet" type="text/css" href="css/lista.css"/>
 
@@ -23,7 +29,7 @@
   <!-- Navbar: cliente -->
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-    <div class="container-fluid padding">
+    <div class="container-fluid">
       <a class="navbar-brand logo" href="homeCliente.html">CHURRASTOP</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
@@ -37,10 +43,10 @@
             <a href="reservaProdutos.html" class="nav-link">Produtos</a>
           </li>
           <li class="nav-item">
-            <a href="notificacoes.html" class="nav-link active">Notificações</a>
+            <a href="notificacoes.html" class="nav-link">Notificações</a>
           </li>
           <li class="nav-item">
-            <a href="historicoEvolucao.html" class="nav-link">Histórico de evolução</a>
+            <a href="historicoEvolucao.html" class="nav-link active">Histórico de evolução</a>
           </li>
           <li class="nav-item">
             <a href="index.html" class="nav-link">Sair</a>
@@ -50,25 +56,39 @@
     </div>
   </nav>
 
-  <!-- Tabela: notificações -->
+  <!-- Gráfico: histórico de evolução -->
 
   <div class="form-wrapper large">
-    <h1>Notificações</h1>
-    <table class="table table-hover largeTable">
-      <tbody id="tableBody">
-      </tbody>
-    </table>
+    <h1>Histórico de evolução</h1>
+    <div id="container"></div>
   </div>
 
+  <!-- Tabela: histórico de evolução -->
+
+  <table class="table table-hover">
+    <thead class="thead">
+      <tr class="evolution">
+        <th scope="col">Peso (Kg)</th>	
+        <th scope="col">Gordura corporal (%)</th>
+        <th scope="col">Dia</th>
+        <th scope="col">Mês</th>
+        <th scope="col">Ano</th>
+      </tr>
+    </thead>
+    <tbody id="evolutionTable" class="evolution">
+    </tbody>
+  </table>
+
   <!-- Bootstrap script -->
-  
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <!-- Page script -->
 
-  <script type="text/javascript" src="js/notificacoes.js"></script>
+  <script type="text/javascript" src="js/historicoEvolucao.js"></script>
 
 </body>
 </html>
+

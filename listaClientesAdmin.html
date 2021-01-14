@@ -1,0 +1,326 @@
+<html>
+<head>
+
+	<!-- Configuração -->
+
+	<title>Churrastop</title>
+	<meta charset="utf-8">
+
+	<!-- Highcharts script -->
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+	<!-- Material icons css -->
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-- Bootstrap css -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- Page css -->
+
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>	
+	<link rel="stylesheet" type="text/css" href="css/modal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/form.css"/>
+	<link rel="stylesheet" type="text/css" href="css/lista.css"/>
+	<link rel="stylesheet" type="text/css" href="css/search.css"/>	
+
+</head>
+<body id="historicoEvolucao">
+
+	<!-- Navbar: administrador -->
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+		<div class="container-fluid">
+			<a href="homeAdmin.html" class="navbar-brand logo">CHURRASTOP</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="homeAdmin.html" class="nav-link">Home</a>
+					</li>
+					<li class="nav-item">
+						<a href="listaProdutos.html" class="nav-link">Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a href="listaFuncionarios.html" class="nav-link">Funcionários</a>
+					</li>
+					<li class="nav-item">
+						<a href="listaClientesAdmin.html" class="nav-link active">Clientes</a>
+					</li>
+					<li class="nav-item">
+						<a href="relatorioVendas.html" class="nav-link">Relatório de vendas</a>
+					</li>
+					<li class="nav-item">
+						<a href="index.html" class="nav-link">Sair</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Tabela: clientes -->
+
+	<table class="table table-hover">
+		<thead class="thead">
+			<tr>
+				<div class="main">
+				    <div class="input-group">
+					    <input id="filtro" type="text" class="form-control" placeholder="Pesquisar cliente">
+					    <div class="input-group-append">
+					        <button class="btn btn-secondary" onclick="filtrarClientes()" type="button">
+					        	<i class="material-icons" data-toggle="tooltip" title="Pesquisar">search</i>
+					        </button>
+					    </div>
+				    </div>
+				</div>
+			</tr>
+			<tr class="cliente">
+				<th scope="col">Nome</th>	
+				<th scope="col">E-mail</th>
+				<th scope="col">Idade</th>
+				<th scope="col">Peso (Kg)</th>
+				<th scope="col">IMC</th>
+				<th scope="col">Gordura Corporal (%)</th>
+				<th scope="col">Mensalidade (R$)</th>
+				<th scope="col">Aulas por semana</th>
+				<th scope="col" class="actions">
+					<a onclick="formCriar()" href="#criarClienteModal" class="create" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+						<i class="material-icons" data-toggle="tooltip" title="Cadastrar">add</i>
+					</a>  	
+				</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody" class="cliente">
+		</tbody>
+	</table>
+
+	<!-- Modal: criar cliente -->
+
+	<div id="criarClienteModal" class="modal">
+		<div class="form-wrapper animate">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h1>Cadastrar cliente</h1>
+			<div class="input-container">
+				<label>Nome completo</label>
+				<input type="text" id="createNome" placeholder="Nome"/>
+				<span class="error" id="createErrorNome"></span>
+			</div>
+			<div class="input-container">
+				<label>Senha</label>
+				<input type="password" id="createSenha" placeholder="Marca"/>
+				<span class="error" id="createErrorSenha"></span>
+			</div>
+			<div class="input-container">
+				<label>E-mail</label>
+				<input type="text" id="createEmail" placeholder="E-mail"/>
+				<span class="error" id="createErrorEmail"></span>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Idade</label>
+						<input type="text" id="createIdade" placeholder="Idade"/>
+						<span class="error" id="createErrorIdade"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Peso</label>
+						<input type="text" id="createPeso" placeholder="Peso"/>
+						<span class="error" id="createErrorPeso"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>IMC</label>
+						<input type="text" id="createImc" placeholder="IMC"/>
+						<span class="error" id="createErrorImc"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Gordura corporal (%)</label>
+						<input type="text" id="createGorduraCorporal" placeholder="Gordura corporal (%)"/>
+						<span class="error" id="createErrorGorduraCorporal"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Mensalidade (R$)</label>
+						<input type="text" id="createMensalidade" placeholder="Mensalidade (R$)"/>
+						<span class="error" id="createErrorMensalidade"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Aulas por semana</label>
+						<input type="text" id="createAulasSemana" placeholder="Aulas por semana"/>
+						<span class="error" id="createErrorAulasSemana"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="botao">
+				<button id="createButton" href="#criarClienteModal" data-toggle="modal" onclick="criarCliente()">Concluir</button>
+				<span class="error" id="createErrorExistente"></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: editar cliente -->
+
+	<div id="editarClienteModal" class="modal">
+		<div class="form-wrapper animate">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h1>Editar cliente</h1>
+			<div class="input-container">
+				<label>Nome completo</label>
+				<input type="text" id="editNome" placeholder="Nome"/>
+				<span class="error" id="editErrorNome"></span>
+			</div>
+			<div class="input-container">
+				<label>Senha</label>
+				<input type="password" id="editSenha" placeholder="Marca"/>
+				<span class="error" id="editErrorSenha"></span>
+			</div>
+			<div class="input-container">
+				<label>E-mail</label>
+				<input type="text" id="editEmail" placeholder="E-mail"/>
+				<span class="error" id="editErrorEmail"></span>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Idade</label>
+						<input type="text" id="editIdade" placeholder="Idade"/>
+						<span class="error" id="editErrorIdade"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Peso</label>
+						<input type="text" id="editPeso" placeholder="Peso"/>
+						<span class="error" id="editErrorPeso"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>IMC</label>
+						<input type="text" id="editImc" placeholder="IMC"/>
+						<span class="error" id="editErrorImc"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Gordura corporal (%)</label>
+						<input type="text" id="editGorduraCorporal" placeholder="Gordura corporal (%)"/>
+						<span class="error" id="editErrorGorduraCorporal"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Mensalidade (R$)</label>
+						<input type="text" id="editMensalidade" placeholder="Mensalidade (R$)"/>
+						<span class="error" id="editErrorMensalidade"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Aulas por semana</label>
+						<input type="text" id="editAulasSemana" placeholder="Aulas por semana"/>
+						<span class="error" id="editErrorAulasSemana"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="botao">
+				<button id="editButton" data-toggle="modal" onclick="editarCliente()">Concluir</button>
+				<span class="error" id="editErrorExistente"></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: adicionar dados do cliente -->
+
+	<div id="adicionarDadosModal" class="modal">
+		<div class="form-wrapper animate">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h1>Adicionar dados</h1>
+			<div class="row">
+				<div class="col-6">
+					<div class="input-container">
+						<label>Gordura corporal (%)</label>
+						<input type="text" id="addGorduraCorporal" placeholder="Gordura corporal (%)"/>
+						<span class="error" id="addErrorGorduraCorporal"></span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="input-container">
+						<label>Peso</label>
+						<input type="text" id="addPeso" placeholder="Peso"/>
+						<span class="error" id="addErrorPeso"></span>
+					</div>
+				</div>
+			</div> 
+			<div class="botao">
+				<button id="addButton" data-toggle="modal" onclick="adicionarDadosCliente()">Concluir</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: histórico de evolução do cliente -->
+
+	<div id="historicoEvolucaoModal" class="modal">
+		<div class="form-wrapper large animate">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true" class="evolution">&times;</span>
+			</button>
+			<h1>Histórico de evolução</h1>
+			<div id="container" class="animate"></div>
+		</div>
+		<table class="table table-hover">
+			<thead class="thead">
+				<tr class="evolution">
+					<th scope="col">Peso (Kg)</th>	
+					<th scope="col">Gordura corporal (%)</th>
+					<th scope="col">Dia</th>
+					<th scope="col">Mês</th>
+					<th scope="col">Ano</th>
+				</tr>
+			</thead>
+			<tbody id="evolutionTable" class="evolution">
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Bootstrap script -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<!-- Page script -->
+
+	<script type="text/javascript" src="js/maskGenerator.js"></script>
+	<script type="text/javascript" src="js/listaClientes.js"></script>
+
+</body>
+</html>
