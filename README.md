@@ -2,7 +2,7 @@
 
 ###### Clique no link ao lado do título acima para visualizar o website.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Elaborado para um projeto escolar e desenvolvido inteiramente com `HTML`, `CSS`, `JavaScript` e `Bootstrap`. Trata-se de uma plataforma para academia com venda de produtos, com três níveis de acesso:
+&nbsp;&nbsp;&nbsp;&nbsp;Elaborado para um projeto escolar e desenvolvido inteiramente com `HTML`, `CSS`, `JavaScript` e `Bootstrap`. Trata-se de uma plataforma para academia com venda de produtos, contendo três níveis de acesso:
 - **administrador:** pode listar, excluir e editar funcionários, clientes e produtos, atualizar o histórico de evolução dos clientes e ver o relatório de vendas;
 - **funcionário:** pode realizar as mesmas ações que o administrador com relação aos clientes; e,
 - **cliente:** pode ver os produtos disponíveis, as notificações de ausência em treinos e de mensalidades atrasadas e o seu histórico de evolução.
