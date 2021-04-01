@@ -9,11 +9,11 @@
 
 ### Como pôr em funcionamento
 
-  Deve-se clonar o repositório através do comando git clone https://github.com/LucasSFranco/Churrastop.git ou baixar o zip do projeto. Depois, basta abrir algum arquivo `.html` iniciado por _home_.
+&nbsp;&nbsp;&nbsp;&nbsp;Deve-se clonar o repositório através do comando `git clone https://github.com/LucasSFranco/Churrastop.git` ou baixar o zip do projeto. Depois, basta abrir algum arquivo `.html` iniciado por _home_.
 
-***OBS:*** As credenciais para acessar os diferentes níveis de acesso são:
-  - administrador: `nome` "admin", `senha` "admin";
-  - funcionário: `nome` "admin", `senha` "admin";
-  - cliente: `nome`"cliente", `senha` "cliente".
+***OBS:*** As credenciais - respectivamente, nome e senha - para acessar os diferentes níveis de acesso são:
+  - administrador: "admin" / "admin";
+  - funcionário: "func" / "func";
+  - cliente: "cliente" / "cliente".
 
 ###### Meu primeiro website 👌
