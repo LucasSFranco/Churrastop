@@ -1,4 +1,6 @@
-# Academia Churrastop 💪 <sup><sub>[DEMO](https://ecstatic-yalow-19cc37.netlify.app/index.html)</sub></sup>
+# Academia Churrastop 💪 <sup><sub>[DEMO](https://ecstatic-yalow-19cc37.netlify.app/index.html) </sub></sup> 
+
+###### Clique no link ao lado do título acima para visualizar o website.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Elaborado para um projeto escolar e desenvolvido inteiramente com `HTML`, `CSS`, `JavaScript` e `Bootstrap`. Trata-se de uma plataforma para academia com venda de produtos, com três níveis de acesso:
 - **administrador:** pode listar, excluir e editar funcionários, clientes e produtos, atualizar o histórico de evolução dos clientes e ver o relatório de vendas;
@@ -9,7 +11,7 @@
 
 ### Como pôr em funcionamento
 
-&nbsp;&nbsp;&nbsp;&nbsp;Deve-se clonar o repositório através do comando `git clone https://github.com/LucasSFranco/Churrastop.git` ou baixar o zip do projeto. Depois, basta abrir algum arquivo `.html` iniciado por _home_.
+&nbsp;&nbsp;&nbsp;&nbsp;Deve-se clonar o repositório através do comando `git clone https://github.com/LucasSFranco/Churrastop.git` ou baixar o zip do projeto. Depois, basta abrir o arquivo `index.html` no seu navegador de preferência.
 
 ***OBS:*** As credenciais - respectivamente, nome e senha - para acessar os diferentes níveis de acesso são:
   - administrador: "admin" / "admin";
